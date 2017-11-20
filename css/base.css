@@ -2,7 +2,7 @@ nav {
 	position:fixed; 
 	top: 0; 
 	left: 0; 
-	width: 100%; 
+	width: 98%; 
 	padding: 5px 15px; 
 	background-color: #777; 
 	font-family: 'Comic Sans MS', 
@@ -10,6 +10,7 @@ nav {
 	color:#EDEDED; 
 	overflow: hidden; 
 	z-index: 999;
+	border-radius: 15px;
 }
 
 body {
@@ -29,6 +30,7 @@ ul {
 	background-color:#EDEDED; 
 	color: #777; 
 	list-style:none;
+	border-radius: 15px;
 }
 
 li {
