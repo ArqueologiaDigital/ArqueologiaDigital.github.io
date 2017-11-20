@@ -4,26 +4,43 @@
 		<!-- META -->
         <meta charset="utf-8" />
 		<!-- CSS -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/base.css" /> -->
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
 		
 		<title> Arqueologia Digital </title>
 		<!-- JS -->
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- <script type="text/javascript" src="js/index.js"></script> -->
+		<script type="text/javascript">
+			$(function() {
+				$('li').click(function() {
+					// custom handling here
+					var src = $(this).attr("data-href"); //$(e).prop("data-href");
+					window.location.href = src;
+					//src = "https://cors-anywhere.herokuapp.com/" + src;
+					//$('#showContent').load(src);
+				});
+			});
+		</script>
 		
-		<nav style="font-family: 'Comic Sans MS', sans-serif; background: #ccc none repeat scroll 0% 0%">
+		<nav>
 			<span>Arqueologia Digital</span>
-			<ul style="padding:0px; margin:0px; background-color:#EDEDED; list-style:none;">
-				<li style="display: inline;"><a href="https://t.me/joinchat/A9wycAskBoAeeAErLVGo3g">Canal do Telegram</a>&nbsp;|&nbsp;</li>
-				<li style="display: inline;"><a href="https://forum.fiozera.com.br/">Fórum Fiozera</a>&nbsp;|&nbsp;</li>
-				<li style="display: inline;"><a href="https://github.com/ArqueologiaDigital/">Repos no GitHub</a>&nbsp;|&nbsp;</li>
-				<li style="display: inline;"><a href="https://archive.org/search.php?query=subject%3A'patinho+feio'">Patinho Feio no Internet Archive</a>&nbsp;</li>
+			<ul>
+				<li data-href="https://t.me/joinchat/A9wycAskBoAeeAErLVGo3g">Canal do Telegram</li>&nbsp;|&nbsp;
+				<li data-href="https://forum.fiozera.com.br/">Fórum Fiozera</li>&nbsp;|&nbsp;
+				<li data-href="https://github.com/ArqueologiaDigital/">Repos no GitHub</li>&nbsp;|&nbsp;
+				<li data-href="https://archive.org/search.php?query=subject%3A'patinho+feio'">Patinho Feio no Internet Archive</li>
 			</ul>
 		</nav>
 	</head>
     
-    <body style="font-family: 'Comic Sans MS', sans-serif; overflow-y: auto;">
-		<h1>Arqueologia Digital</h1>
-		<h2>Preservação histórica por meio da Emulação de Dispositivos Eletrônicos</h2>
+    <body>
+		<!-- <h1>Arqueologia Digital</h1> -->
+		<h3>Preservação histórica por meio da Emulação de Dispositivos Eletrônicos</h3>
+		<div id="showContent" style="border:none; height:100%; width:100%;">
+			<div id="frame1"></div>
+			<div id="frame2"></div>
+			<div id="frame3"></div>
+			<div id="frame4"></div>
+		</div>
     </body>
 </html>

@@ -1,0 +1,37 @@
+nav {
+	position:fixed; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	padding: 5px 15px; 
+	background-color: #777; 
+	font-family: 'Comic Sans MS', 
+	sans-serif; 
+	color:#EDEDED; 
+	overflow: hidden; 
+	z-index: 999;
+}
+
+body {
+	margin-top: 35px; 
+	font-family: 'Comic Sans MS', sans-serif; 
+	overflow-y: auto;
+}
+
+ul {
+	top: 0; 
+	left: 25%; 
+	margin:0; 
+	position: fixed; 
+	display: block; 
+	text-align: center; 
+	padding: 5px 15px; 
+	background-color:#EDEDED; 
+	color: #777; 
+	list-style:none;
+}
+
+li {
+	display: inline; 
+	cursor:pointer;
+}
