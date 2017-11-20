@@ -9,18 +9,9 @@
 		<title> Arqueologia Digital </title>
 		<!-- JS -->
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-		<!-- <script type="text/javascript" src="js/index.js"></script> -->
-		<script type="text/javascript">
-			$(function() {
-				$('li').click(function() {
-					// custom handling here
-					var src = $(this).attr("data-href"); //$(e).prop("data-href");
-					window.location.href = src;
-					//src = "https://cors-anywhere.herokuapp.com/" + src;
-					//$('#showContent').load(src);
-				});
-			});
-		</script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<!-- <script type="text/javascript">
+		</script> -->
 		
 		<nav>
 			<span>Arqueologia Digital</span>
@@ -37,10 +28,22 @@
 		<!-- <h1>Arqueologia Digital</h1> -->
 		<h3>Preservação histórica por meio da Emulação de Dispositivos Eletrônicos</h3>
 		<div id="showContent" style="border:none; height:100%; width:100%;">
-			<div id="frame1"></div>
-			<div id="frame2"></div>
-			<div id="frame3"></div>
-			<div id="frame4"></div>
+			<figure id="slide">
+				<img src="img/01.png" data-description="autografos_painel_pato_feio">
+				<img src="img/02.png" data-description="g-10_modulo_memoria">
+				<img src="img/03.png" data-description="jjneto_fsanches_pato_feio">
+				<img src="img/04.png" data-description="label_pato_feio">
+				<img src="img/05.png" data-description="layout_painel_pato_feio">
+				<img src="img/06.png" data-description="pcb_cde3_3d_1">
+				<img src="img/07.png" data-description="pcb_cde3_3d_2">
+				<img src="img/08.png" data-description="pcb_cde3dbg_3d_1">
+				<img src="img/09.png" data-description="pcb_cde3dbg_3d_2">
+				<img src="img/10.png" data-description="pcb_cde3dbg_3d_3">
+				<img src="img/11.png" data-description="replica_painel_pato_feio_1">
+				<img src="img/12.png" data-description="replica_painel_pato_feio_2">
+				<img src="img/13.png" data-description="sch_pcb_decod_instr_pf_kicad">
+				<img src="img/14.png" data-description="sch_pcb_decod_instr_pf_original">
+			</figure>
 		</div>
     </body>
 </html>
