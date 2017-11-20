@@ -1,6 +1,6 @@
 $(function() {
 	$("#slide img:eq(0)").addClass("ativo").show();
-	computeSlideDimensions();
+	//computeSlideDimensions($("#slide"), $("#slide img.ativo"));
 	var texto = $(".ativo").attr("data-description");
 	$("#slide").prepend("<p>" + texto + "</p>");
 	setInterval(slide, 5000);
@@ -23,14 +23,12 @@ function slide(){
 		$(".ativo").fadeOut().removeClass("ativo");
 		$("#slide img:eq(0)").fadeIn("fast").addClass("ativo");
 	}
-	computeSlideDimensions();
+	computeSlideDimensions($("#slide"), $("#slide img.ativo"));
 	var texto = $(".ativo").attr("data-description");
 	$("#slide p").hide().html(texto).delay(500).fadeIn("fast");
 }
 
-function computeSlideDimensions() {
-	var slide = $("#slide");
-	var img = $("#slide img.ativo");
+function computeSlideDimensions(slide, img) {
 	var slideWidth = parseInt(slide.css("width"));
 	var slideHeight = parseInt(slide.css("height"));
 	var imgWidth = parseInt(img.css("width"));
