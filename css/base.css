@@ -48,6 +48,7 @@ li {
 	margin: 50px auto;
 	box-shadow: 0 0 8px #000;
 	position: relative;
+	border-radius: 15px;
 }
 
 #slide img {
