@@ -5,6 +5,20 @@ $(function() {
 	$("#slide").prepend("<p>" + texto + "</p>");
 	setInterval(slide, 5000);
 	
+	//$("#newsFeed").load('newsfeed.html');
+	//window.domain = "localhost";
+	$.ajax({
+	  url: "http://arqueologiadigital.org/newsfeed.html",
+	  crossDomain: true
+	}).done(function(data) {
+		var fileDom = $(data);
+		console.log(fileDom);
+		$("#newsFeed").append(fileDom);
+	}).error(function() {
+		$("#newsFeed").append("<p>Não foi possível carregar o feed.</p>");
+	});
+
+	
 	$('li').click(function() {
 		// custom handling here
 		var src = $(this).attr("data-href");
@@ -15,6 +29,10 @@ $(function() {
 		//$('#showContent').load(src);
 	});
 });
+
+function publishInNewsFeed(anchor) {
+	$("#newsFeed").append("<p>" + anchor + "</p>");
+}
 
 function slide(){
 	if($(".ativo").next().size()) {
