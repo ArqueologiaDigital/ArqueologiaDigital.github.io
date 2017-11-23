@@ -1,12 +1,12 @@
 nav {
-	position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     width: 98%;
     height: 3%;
-    padding: 6px 15px;
+    padding: 7px 15px;
     background-color: #777;
-    font-family: 'Comic Sans MS', sans-serif;
+    font-family: "Open Sans", Tahoma, sans-serif;
     color: #EDEDED;
     overflow: hidden;
     z-index: 999;
@@ -21,22 +21,22 @@ nav span {
 
 body {
 	margin-top: 35px; 
-	font-family: 'Comic Sans MS', sans-serif; 
+	font-family: "Open Sans", Tahoma, sans-serif; 
 	overflow-y: auto;
 }
 
 ul {
-	top: 0; 
-	left: 18%; 
-	margin:0; 
-	position: fixed; 
-	display: block; 
-	text-align: center; 
-	padding: 5px 15px; 
-	background-color:#EDEDED; 
-	color: #777; 
-	list-style:none;
-	border-radius: 15px;
+    top: 0;
+    left: 18%;
+    margin: 5px;
+    position: fixed;
+    display: block;
+    text-align: center;
+    padding: 3px 13px;
+    background-color: #EDEDED;
+    color: #777;
+    list-style: none;
+    border-radius: 15px;
 }
 
 li {
@@ -62,7 +62,7 @@ li {
 }
 
 #newsFeed p {
-	font-family: 'Comic Sans MS', sans-serif;
+	font-family: "Open Sans", Tahoma, sans-serif;
 	font-size: 14px; 
 	color: #777; 
 }
@@ -85,7 +85,7 @@ li {
 }
 
 #caption p {
-	font-family: 'Comic Sans MS', sans-serif;
+	font-family: "Open Sans", Tahoma, sans-serif;
 	font-size: 16px; 
 	color: #EDEDED;
 }
@@ -123,7 +123,7 @@ li {
 	left: 0;
 	width: 100%;
 	padding: 10px; 
-	font-family: 'Comic Sans MS', sans-serif;
+	font-family: "Open Sans", Tahoma, sans-serif;
 	font-size: 14px; 
 	background: rgba(0,0,0,0.6);
 	color: #EDEDED;
