@@ -14,7 +14,7 @@ nav {
     border-radius: 15px;
 }
 
-nav span {
+nav span, ul {
     font-weight: bold;
 	box-shadow: 0 0 8px #171;
 }
@@ -23,6 +23,10 @@ body {
 	margin-top: 35px; 
 	font-family: "Open Sans", Tahoma, sans-serif; 
 	overflow-y: auto;
+}
+
+body > h3 {
+    margin: 40px 11px;
 }
 
 ul {
