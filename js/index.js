@@ -3,9 +3,10 @@ $(function() {
 	//computeSlideDimensions($("#slide"), $("#slide img.ativo"));
 	var texto = $(".ativo").attr("data-description");
 	$("#slide").prepend("<p>" + texto + "</p>");
-	newsFeed();
+	populateSlideShow();
+	populateNewsFeed();
 	setInterval(slide, 5000);
-	setInterval(newsFeed, 60000);
+	setInterval(populateNewsFeed, 60000);
 	
 	$('li').click(function() {
 		// custom handling here
@@ -18,7 +19,7 @@ $(function() {
 	});
 });
 
-function newsFeed() {
+function populateNewsFeed() {
 	$("#newsFeed > p").remove();
 	$.ajax({
 	  url: "http://arqueologiadigital.org/newsfeed.html",
@@ -32,7 +33,23 @@ function newsFeed() {
 	});
 }
 
+function populateSlideShow() {
+	$("#slide > img").remove();
+	$.ajax({
+	  url: "http://arqueologiadigital.org/slideshow.html",
+	  crossDomain: true
+	}).done(function(data) {
+		var fileDom = $(data);
+		//console.log(fileDom);
+		$("#slide").append(fileDom);
+	}).error(function() {
+		$("#slide p").remove();
+		$("#slide").prepend("<p>Não foi possível carregar o slideshow.</p>");
+	});
+}
+
 function slide(){
+	$("#slide p").remove();
 	if($(".ativo").next().size()) {
 		$(".ativo").fadeOut("slow").removeClass("ativo").next().fadeIn("fast").addClass("ativo");
 	} else {
@@ -41,7 +58,11 @@ function slide(){
 	}
 	computeSlideDimensions($("#slide"), $("#slide img.ativo"));
 	var texto = $(".ativo").attr("data-description");
-	$("#slide p").hide().html(texto).delay(500).fadeIn("fast");
+	if(texto && texto.length > 0)
+		$("#slide").prepend("<p>" + texto + "</p>").delay(500).fadeIn("fast");
+	else
+		$("#slide").prepend("<p>Não foi possível carregar o slideshow.</p>").show();
+	//$("#slide p").hide().html(texto).delay(500).fadeIn("fast");
 }
 
 function computeSlideDimensions(slide, img) {
