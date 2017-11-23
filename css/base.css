@@ -128,7 +128,7 @@ li {
 #slide p {
 	z-index:2;
 	position: absolute; 
-	bottom: 0;
+	bottom: -14px;
 	left: 0;
 	width: 100%;
 	padding: 10px; 
