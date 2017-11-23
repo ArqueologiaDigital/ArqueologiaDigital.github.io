@@ -1,9 +1,14 @@
 $(function() {
-	$("#slide img:eq(0)").addClass("ativo").show();
-	//computeSlideDimensions($("#slide"), $("#slide img.ativo"));
-	var texto = $(".ativo").attr("data-description");
-	$("#slide").prepend("<p>" + texto + "</p>");
 	populateSlideShow();
+	if($("#slide img").next().size()) {
+		$("#slide img:eq(0)").addClass("ativo").show();
+		$("#slide > img").addClass("ativo").show();
+		var texto = $(".ativo").attr("data-description");
+		$("#slide").prepend("<p>" + texto + "</p>");
+	}
+	else
+		slide(true);
+	//computeSlideDimensions($("#slide"), $("#slide img.ativo"));
 	populateNewsFeed();
 	setInterval(slide, 5000);
 	setInterval(populateNewsFeed, 60000);
@@ -48,7 +53,7 @@ function populateSlideShow() {
 	});
 }
 
-function slide(){
+function slide(isFirstLoad = false){
 	$("#slide p").remove();
 	if($(".ativo").next().size()) {
 		$(".ativo").fadeOut("slow").removeClass("ativo").next().fadeIn("fast").addClass("ativo");
@@ -62,8 +67,12 @@ function slide(){
 		$("#slide").prepend("<p>" + texto + "</p>");
 		$("#slide p").hide().delay(500).fadeIn("fast");
 	}
-	else
-		$("#slide").prepend("<p>Não foi possível carregar o slideshow.</p>").show();
+	else {
+		if(isFirstLoad)
+			$("#slide").prepend("<p>Carregando o slideshow, aguarde...</p>").show();
+		else
+			$("#slide").prepend("<p>Não foi possível carregar o slideshow.</p>").show();
+	}
 	//$("#slide p").hide().html(texto).delay(500).fadeIn("fast");
 }
 
