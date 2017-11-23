@@ -9,23 +9,15 @@
 		<title> Arqueologia Digital </title>
 		<!-- JS -->
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-		<!-- <script type="text/javascript" src="js/index.js"></script> -->
-		<script type="text/javascript">
-			$(function() {
-				$('li').click(function() {
-					// custom handling here
-					var src = $(this).attr("data-href"); //$(e).prop("data-href");
-					window.location.href = src;
-					//src = "https://cors-anywhere.herokuapp.com/" + src;
-					//$('#showContent').load(src);
-				});
-			});
-		</script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<!-- <script type="text/javascript">
+		</script> -->
 		
 		<nav>
 			<span>Arqueologia Digital</span>
 			<ul>
 				<li data-href="https://t.me/joinchat/A9wycAskBoAeeAErLVGo3g">Canal do Telegram</li>&nbsp;|&nbsp;
+				<li data-href="https://garoa.github.io/Telegram_logs_Garoa_Hacker_Clube_Publico/formatted/html/Arqueologia_Digital_e_Preservação_Histórica_por_meio_da_Emulação_de_Dispositivos_Eletrônicos%231-0.html">Log do Chat no Canal do Telegram</li>&nbsp;|&nbsp;
 				<li data-href="https://forum.fiozera.com.br/">Fórum Fiozera</li>&nbsp;|&nbsp;
 				<li data-href="https://github.com/ArqueologiaDigital/">Repos no GitHub</li>&nbsp;|&nbsp;
 				<li data-href="https://archive.org/search.php?query=subject%3A'patinho+feio'">Patinho Feio no Internet Archive</li>
@@ -36,11 +28,29 @@
     <body>
 		<!-- <h1>Arqueologia Digital</h1> -->
 		<h3>Preservação histórica por meio da Emulação de Dispositivos Eletrônicos</h3>
-		<div id="showContent" style="border:none; height:100%; width:100%;">
-			<div id="frame1"></div>
-			<div id="frame2"></div>
-			<div id="frame3"></div>
-			<div id="frame4"></div>
+		<div id="showContent">
+			<div id="newsFeed">
+				<div id="caption"><p>Últimas atualizações</p></div><br><br>
+			</div>
+			<figure id="slide">
+				<img src="img/01.png" data-description="Painel do 'Pato Feio', autografado pelos projetistas originais">
+				<img src="img/02.png" data-description="Módulo de Memória do Computador G-10 (1975)">
+				<img src="img/03.png" data-description="Painel do 'Pato Feio', apresentado a J.J. Neto por F. Sanches">
+				<img src="img/04.png" data-description="Label do 'Pato Feio', original">
+				<img src="img/05.png" data-description="Layout - Painel do 'Pato Feio'">
+				<img src="img/06.png" data-description="Layout - Placa CDE-3 (3D) (1)">
+				<img src="img/07.png" data-description="Layout - Placa CDE-3 (3D) (2)">
+				<img src="img/08.png" data-description="Layout - Placa CDE-3-DBG (3D) (1)">
+				<img src="img/09.png" data-description="Layout - Placa CDE-3-DBG (3D) (2)">
+				<img src="img/10.png" data-description="Layout - Placa CDE-3-DBG (3D) (3)">
+				<img src="img/11.png" data-description="Construção do Painel do 'Pato Feio'">
+				<img src="img/12.png" data-description="Painel do 'Pato Feio', já emoldurado">
+				<img src="img/13.png" data-description="Diagrama Lógico - Decodificador de Instruções do 'Pato Feio' (2017)">
+				<img src="img/14.png" data-description="Diagrama Lógico - Decodificador de Instruções do 'Pato Feio' (1971)">
+				<img src="img/15.png" data-description="Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (1)">
+				<img src="img/16.png" data-description="Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (2)">
+				<img src="img/17.png" data-description="Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (3)">
+			</figure>
 		</div>
     </body>
 </html>
