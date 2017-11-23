@@ -3,21 +3,9 @@ $(function() {
 	//computeSlideDimensions($("#slide"), $("#slide img.ativo"));
 	var texto = $(".ativo").attr("data-description");
 	$("#slide").prepend("<p>" + texto + "</p>");
+	newsFeed();
 	setInterval(slide, 5000);
-	
-	//$("#newsFeed").load('newsfeed.html');
-	//window.domain = "localhost";
-	$.ajax({
-	  url: "http://arqueologiadigital.org/newsfeed.html",
-	  crossDomain: true
-	}).done(function(data) {
-		var fileDom = $(data);
-		console.log(fileDom);
-		$("#newsFeed").append(fileDom);
-	}).error(function() {
-		$("#newsFeed").append("<p>Não foi possível carregar o feed.</p>");
-	});
-
+	setInterval(newsFeed, 5000);
 	
 	$('li').click(function() {
 		// custom handling here
@@ -30,8 +18,18 @@ $(function() {
 	});
 });
 
-function publishInNewsFeed(anchor) {
-	$("#newsFeed").append("<p>" + anchor + "</p>");
+function newsFeed() {
+	$("#newsFeed > p").remove();
+	$.ajax({
+	  url: "http://arqueologiadigital.org/newsfeed.html",
+	  crossDomain: true
+	}).done(function(data) {
+		var fileDom = $(data);
+		//console.log(fileDom);
+		$("#newsFeed").append(fileDom);
+	}).error(function() {
+		$("#newsFeed").append("<p>Não foi possível carregar o feed.</p>");
+	});
 }
 
 function slide(){
