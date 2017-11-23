@@ -58,8 +58,10 @@ function slide(){
 	}
 	computeSlideDimensions($("#slide"), $("#slide img.ativo"));
 	var texto = $(".ativo").attr("data-description");
-	if(texto && texto.length > 0)
-		$("#slide").prepend("<p>" + texto + "</p>").delay(500).fadeIn("fast");
+	if(texto && texto.length > 0) {
+		$("#slide").prepend("<p>" + texto + "</p>");
+		$("#slide p").hide().delay(500).fadeIn("fast");
+	}
 	else
 		$("#slide").prepend("<p>Não foi possível carregar o slideshow.</p>").show();
 	//$("#slide p").hide().html(texto).delay(500).fadeIn("fast");
