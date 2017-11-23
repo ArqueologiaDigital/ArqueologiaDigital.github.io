@@ -10,6 +10,7 @@ nav {
 	color:#EDEDED; 
 	overflow: hidden; 
 	z-index: 999;
+    box-shadow: 0 16px 55px #171;
 	border-radius: 15px;
 }
 
@@ -50,7 +51,7 @@ li {
     width: 640px;
     overflow-y: auto;
 	padding: 0 15px 0 15px;
-    box-shadow: 0 0 8px #000;
+    box-shadow: 0 0 8px #171;
     border-radius: 15px;
     margin-left: 60px;
 }
@@ -64,7 +65,7 @@ li {
 #caption {
     width: 640px;
     padding-left: 15px;
-    box-shadow: 0 0 8px #000;
+    box-shadow: 0 0 8px #171;
     /* border-radius: 15px; */
     border-top-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -96,7 +97,7 @@ li {
 	overflow: hidden; 
 	height: 540px;
 	margin: 50px auto;
-	box-shadow: 0 0 8px #000;
+	box-shadow: 0 0 8px #171;
 	position: relative;
 	border-radius: 15px;
 }
