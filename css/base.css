@@ -14,9 +14,13 @@ nav {
     border-radius: 15px;
 }
 
-nav span, ul {
+nav span, #caption span, ul {
     font-weight: bold;
 	box-shadow: 0 0 8px #171;
+}
+
+nav span, #caption span {
+    border-radius: 6px;
 }
 
 body {
@@ -72,8 +76,9 @@ li {
 }
 
 #caption {
-    width: 640px;
-    padding-left: 15px;
+    width: 620px;
+    /* padding-left: 15px; */
+    padding: 13px 15px;
     box-shadow: 0 0 8px #171;
     /* border-radius: 15px; */
     border-top-left-radius: 15px;
@@ -88,7 +93,7 @@ li {
     background: rgba(0,0,0,0.6);
 }
 
-#caption p {
+#caption span {
 	font-family: "Open Sans", Tahoma, sans-serif;
 	font-size: 16px; 
 	color: #EDEDED;
