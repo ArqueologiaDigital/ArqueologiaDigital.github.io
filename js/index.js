@@ -5,7 +5,7 @@ $(function() {
 	$("#slide").prepend("<p>" + texto + "</p>");
 	newsFeed();
 	setInterval(slide, 5000);
-	setInterval(newsFeed, 5000);
+	setInterval(newsFeed, 60000);
 	
 	$('li').click(function() {
 		// custom handling here
