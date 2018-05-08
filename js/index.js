@@ -9,9 +9,7 @@ $(function() {
 	else
 		slide(true);
 	//computeSlideDimensions($("#slide"), $("#slide img.ativo"));
-	populateNewsFeed();
 	setInterval(slide, 5000);
-	setInterval(populateNewsFeed, 60000);
 	
 	$('li').click(function() {
 		// custom handling here
@@ -23,20 +21,6 @@ $(function() {
 		//$('#showContent').load(src);
 	});
 });
-
-function populateNewsFeed() {
-	$("#newsFeed > p").remove();
-	$.ajax({
-	  url: "http://arqueologiadigital.org/newsfeed.html",
-	  crossDomain: true
-	}).done(function(data) {
-		var fileDom = $(data);
-		//console.log(fileDom);
-		$("#newsFeed").append(fileDom);
-	}).error(function() {
-		$("#newsFeed").append("<p>Não foi possível carregar o feed.</p>");
-	});
-}
 
 function populateSlideShow() {
 	$("#slide > img").remove();
