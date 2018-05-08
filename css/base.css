@@ -10,16 +10,12 @@ nav {
     color: #EDEDED;
     overflow: hidden;
     z-index: 999;
-    border-radius: 15px;
 }
 
 nav span, #caption span, ul {
     font-weight: bold;
 }
 
-nav span, #caption span {
-    border-radius: 6px;
-}
 
 body {
 	margin-top: 35px; 
@@ -108,6 +104,7 @@ li {
 	height: 540px;
 	margin: 50px auto;
 	position: relative;
+	border: solid 1px black;
 	border-radius: 15px;
 }
 
