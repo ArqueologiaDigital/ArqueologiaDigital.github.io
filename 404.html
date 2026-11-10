@@ -15,18 +15,21 @@
     return;
   }
   // Short addresses for pages of the chat log site, which live under
-  // /Telegram_logs_site/formatted/html/. With or without ".html"; query and #anchor are kept.
-  //   /comunidade  /topicos  /topicos-ano-3  /topico-patinho-feio  /membro-64762480
-  //   /busca (search, e.g. /busca?q=patinho)  /log (index of the chat pages)
+  // /Telegram_logs_site/formatted/html/. ".html" and a final "/" are optional; the query and
+  // #anchor are kept.
+  //   /topicos                 topic front page       /topicos/patinho-feio   one topic
+  //   /topicos/ano-3           one group year         /comunidade             member gallery
+  //   /comunidade/fsanches     a member's profile     /busca?q=patinho        search
+  //   /log                     index of the chat pages
   var site = "/Telegram_logs_site/formatted/html/";
-  var alias = { busca: "search", log: "index" };
-  var m = /^\/([a-z0-9-]+)(?:\.html)?\/?$/.exec(p);
-  if (m) {
-    var name = alias[m[1]] || m[1];
-    if (/^(comunidade|topicos|topicos-ano-\d+|topico-[a-z0-9-]+|membro-\d+|search|index)$/.test(name) && m[1] !== "index") {
-      location.replace(site + name + ".html" + location.search + location.hash);
-    }
-  }
+  var path = p.toLowerCase().replace(/\.html$/, "").replace(/\/$/, ""), m, page = null;
+  if (path === "/topicos" || path === "/comunidade") page = path.slice(1);
+  else if (path === "/busca") page = "search";
+  else if (path === "/log") page = "index";
+  else if ((m = /^\/topicos\/ano-(\d+)$/.exec(path))) page = "topicos-ano-" + m[1];
+  else if ((m = /^\/topicos\/([a-z0-9-]+)$/.exec(path))) page = "topico-" + m[1];
+  else if ((m = /^\/comunidade\/([a-z0-9_]+)$/.exec(path))) page = "membro-" + m[1];
+  if (page) location.replace(site + page + ".html" + location.search + location.hash);
 })();
 </script>
 </head>
