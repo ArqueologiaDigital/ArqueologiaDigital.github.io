@@ -14,22 +14,13 @@
     location.replace("/Telegram_logs_site/" + p.slice(old.length) + location.search + location.hash);
     return;
   }
-  // Short addresses for pages of the chat log site, which live under
-  // /Telegram_logs_site/formatted/html/. ".html" and a final "/" are optional; the query and
-  // #anchor are kept.
-  //   /topicos                 topic front page       /topicos/patinho-feio   one topic
-  //   /topicos/ano-3           one group year         /comunidade             member gallery
-  //   /comunidade/fsanches     a member's profile     /busca?q=patinho        search
-  //   /log                     index of the chat pages          /projetos               the group's repositories
+  // /topicos/, /comunidade/ and /projetos/ are real pages of this repository (written by
+  // Telegram_logs_site/publish.sh). Two more short addresses are forwarded from here:
+  //   /busca?q=patinho   the search page        /log   the index of the chat pages
   var site = "/Telegram_logs_site/formatted/html/";
-  var path = p.toLowerCase().replace(/\.html$/, "").replace(/\/$/, ""), m, page = null;
-  if (path === "/topicos" || path === "/comunidade" || path === "/projetos") page = path.slice(1);
-  else if (path === "/busca") page = "search";
-  else if (path === "/log") page = "index";
-  else if ((m = /^\/topicos\/ano-(\d+)$/.exec(path))) page = "topicos-ano-" + m[1];
-  else if ((m = /^\/topicos\/([a-z0-9-]+)$/.exec(path))) page = "topico-" + m[1];
-  else if ((m = /^\/comunidade\/([a-z0-9_]+)$/.exec(path))) page = "membro-" + m[1];
-  if (page) location.replace(site + page + ".html" + location.search + location.hash);
+  var path = p.toLowerCase().replace(/\.html$/, "").replace(/\/$/, "");
+  if (path === "/busca") location.replace(site + "search.html" + location.search + location.hash);
+  else if (path === "/log") location.replace(site + "index.html" + location.hash);
 })();
 </script>
 </head>
@@ -37,8 +28,8 @@
 <h3>Página não encontrada</h3>
 <p><a href="/">Arqueologia Digital</a> &middot;
 <a href="/Telegram_logs_site/formatted/html/index.html">Log do Chat no Canal do Telegram</a> &middot;
-<a href="/Telegram_logs_site/formatted/html/topicos.html">Tópicos</a> &middot;
-<a href="/Telegram_logs_site/formatted/html/comunidade.html">Comunidade</a> &middot;
+<a href="/topicos/">Tópicos</a> &middot;
+<a href="/comunidade/">Comunidade</a> &middot;
 <a href="/galeria.html">Galeria de fotos</a></p>
 </body>
 </html>
