@@ -1,41 +1,131 @@
-﻿<!DOCTYPE html>
-<html>
-    <head>
-		<!-- META -->
-        <meta charset="utf-8" />
-		<!-- NO-CACHE -->
-		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-		<meta http-equiv="Pragma" content="no-cache" />
-		<meta http-equiv="Expires" content="0" />		
-		<!-- CSS -->
-		<link rel="stylesheet" type="text/css" href="css/base.css" />
-		
-		<title> Arqueologia Digital: galeria </title>
-		<!-- JS -->
-		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-		<script type="text/javascript" src="js/index.js"></script>
-		<!-- <script type="text/javascript">
-		</script> -->
-		
-		<nav>
-			<span>&nbsp;Arqueologia Digital&nbsp;</span>
-			<ul>
-				<li data-href="http://arqueologiadigital.org/">Tópicos das conversas</li>&nbsp;|&nbsp;
-				<li data-href="https://t.me/joinchat/A9wycAskBoAeeAErLVGo3g">Canal do Telegram</li>&nbsp;|&nbsp;
-				<li data-href="http://arqueologiadigital.org/Telegram_logs_site/formatted/html/Arqueologia_Digital_e_Preserva%C3%A7%C3%A3o_Hist%C3%B3rica_por_meio_da_Emula%C3%A7%C3%A3o_de_Dispositivos_Eletr%C3%B4nicos-0.html">Log do Chat no Canal do Telegram</li>&nbsp;|&nbsp;
-				<li data-href="https://forum.fiozera.com.br/">Fórum Fiozera</li>&nbsp;|&nbsp;
-				<li data-href="https://github.com/ArqueologiaDigital/">Repos no GitHub</li>&nbsp;|&nbsp;
-				<li data-href="https://archive.org/search.php?query=subject%3A'patinho+feio'">Patinho Feio no Internet Archive</li>
-			</ul>
-		</nav>
-	</head>
-    
-    <body>
-		<!-- <h1>Arqueologia Digital</h1> -->
-		<h3>Preservação histórica por meio da Emulação de Dispositivos Eletrônicos</h3>
-		<div id="showContent">
-			<figure id="slide">
-			</figure>
-		</div>
-    </body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galeria: Arqueologia Digital</title>
+<!-- Photo gallery (it was the site's front page slideshow until 2026-11). Self-contained: the
+     pictures and captions are listed below; add one with a <figure> like the others, using an
+     800 px wide img/NN-thumb.jpg and the original as img/NN.png. -->
+<style>
+  :root { --bg: #14171a; --card: #1e2327; --ink: #e8e6e1; --dim: #9aa0a6; --accent: #7fd38a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 Georgia, "Times New Roman", serif; }
+  a { color: var(--accent); }
+  header { max-width: 1240px; margin: 0 auto; padding: 28px 20px 8px; }
+  header h1 { margin: 0; font-size: 1.9em; font-weight: normal; letter-spacing: .01em; }
+  header p { margin: .3em 0 0; color: var(--dim); }
+  nav { margin-top: 14px; font-size: .95em; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  nav a { text-decoration: none; border-bottom: 1px solid transparent; }
+  nav a:hover { border-bottom-color: var(--accent); }
+  .bar { max-width: 1240px; margin: 0 auto; padding: 10px 20px 0; }
+  button { font: inherit; color: var(--bg); background: var(--accent); border: 0; border-radius: 4px;
+           padding: 6px 14px; cursor: pointer; }
+  button.ghost { background: transparent; color: var(--ink); border: 1px solid #555; }
+  main { max-width: 1240px; margin: 0 auto; padding: 18px 20px 60px; columns: 4 260px; column-gap: 18px; }
+  figure { margin: 0 0 18px; break-inside: avoid; background: var(--card); border-radius: 6px; overflow: hidden;
+           box-shadow: 0 1px 3px rgba(0,0,0,.5); }
+  figure a { display: block; }
+  figure img { display: block; width: 100%; height: auto; transition: opacity .15s; }
+  figure a:hover img, figure a:focus img { opacity: .82; }
+  figcaption { padding: 9px 12px 11px; font-size: .9em; color: #cfcdc7; }
+  footer { max-width: 1240px; margin: 0 auto; padding: 0 20px 40px; color: var(--dim); font-size: .85em; }
+  /* viewer */
+  #viewer { position: fixed; inset: 0; background: rgba(8,9,10,.96); display: none; flex-direction: column;
+            align-items: center; justify-content: center; z-index: 10; padding: 12px; }
+  #viewer.open { display: flex; }
+  #viewer img { max-width: 100%; max-height: calc(100vh - 150px); object-fit: contain; border-radius: 4px; }
+  #viewer .cap { margin: 12px 0 8px; text-align: center; max-width: 900px; }
+  #viewer .cap small { color: var(--dim); }
+  #viewer .ctl { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  @media (max-width: 600px) { header h1 { font-size: 1.5em; } main { columns: 1; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Arqueologia Digital: galeria</h1>
+  <p>Preservação histórica por meio da emulação de dispositivos eletrônicos.</p>
+  <nav>
+    <a href="/">Tópicos das conversas</a>
+    <a href="/Telegram_logs_site/formatted/html/comunidade.html">Comunidade</a>
+    <a href="/Telegram_logs_site/formatted/html/index.html">Log do chat</a>
+    <a href="https://t.me/joinchat/A9wycAskBoAeeAErLVGo3g">Canal do Telegram</a>
+    <a href="https://forum.fiozera.com.br/">Fórum Fiozera</a>
+    <a href="https://github.com/ArqueologiaDigital/">GitHub</a>
+    <a href="https://archive.org/search.php?query=subject%3A'patinho+feio'">Patinho Feio no Internet Archive</a>
+  </nav>
+</header>
+<div class="bar"><button type="button" id="play">▶ Ver como slideshow</button></div>
+<main id="gallery">
+      <figure><a href="img/01.png" data-thumb="img/01-thumb.jpg"><img src="img/01-thumb.jpg" width="800" height="664" loading="lazy" alt="Painel do “Pato Feio”, autografado pelos projetistas originais"></a><figcaption>Painel do “Pato Feio”, autografado pelos projetistas originais</figcaption></figure>
+      <figure><a href="img/02.png" data-thumb="img/02-thumb.jpg"><img src="img/02-thumb.jpg" width="800" height="600" loading="lazy" alt="Módulo de Memória do Computador G-10 (1975)"></a><figcaption>Módulo de Memória do Computador G-10 (1975)</figcaption></figure>
+      <figure><a href="img/03.png" data-thumb="img/03-thumb.jpg"><img src="img/03-thumb.jpg" width="800" height="1423" loading="lazy" alt="Painel do “Pato Feio”, apresentado a J.J. Neto por F. Sanches"></a><figcaption>Painel do “Pato Feio”, apresentado a J.J. Neto por F. Sanches</figcaption></figure>
+      <figure><a href="img/04.png" data-thumb="img/04-thumb.jpg"><img src="img/04-thumb.jpg" width="800" height="600" loading="lazy" alt="Label do “Pato Feio”, original"></a><figcaption>Label do “Pato Feio”, original</figcaption></figure>
+      <figure><a href="img/05.png" data-thumb="img/05-thumb.jpg"><img src="img/05-thumb.jpg" width="800" height="1283" loading="lazy" alt="Layout - Painel do “Pato Feio”"></a><figcaption>Layout - Painel do “Pato Feio”</figcaption></figure>
+      <figure><a href="img/06.png" data-thumb="img/06-thumb.jpg"><img src="img/06-thumb.jpg" width="800" height="424" loading="lazy" alt="Layout - Placa CDE-3 (3D) (1)"></a><figcaption>Layout - Placa CDE-3 (3D) (1)</figcaption></figure>
+      <figure><a href="img/07.png" data-thumb="img/07-thumb.jpg"><img src="img/07-thumb.jpg" width="800" height="571" loading="lazy" alt="Layout - Placa CDE-3 (3D) (2)"></a><figcaption>Layout - Placa CDE-3 (3D) (2)</figcaption></figure>
+      <figure><a href="img/08.png" data-thumb="img/08-thumb.jpg"><img src="img/08-thumb.jpg" width="800" height="763" loading="lazy" alt="Layout - Placa CDE-3-DBG (3D) (1)"></a><figcaption>Layout - Placa CDE-3-DBG (3D) (1)</figcaption></figure>
+      <figure><a href="img/09.png" data-thumb="img/09-thumb.jpg"><img src="img/09-thumb.jpg" width="800" height="763" loading="lazy" alt="Layout - Placa CDE-3-DBG (3D) (2)"></a><figcaption>Layout - Placa CDE-3-DBG (3D) (2)</figcaption></figure>
+      <figure><a href="img/10.png" data-thumb="img/10-thumb.jpg"><img src="img/10-thumb.jpg" width="800" height="366" loading="lazy" alt="Layout - Placa CDE-3-DBG (3D) (3)"></a><figcaption>Layout - Placa CDE-3-DBG (3D) (3)</figcaption></figure>
+      <figure><a href="img/11.png" data-thumb="img/11-thumb.jpg"><img src="img/11-thumb.jpg" width="800" height="600" loading="lazy" alt="Construção do Painel do “Pato Feio”"></a><figcaption>Construção do Painel do “Pato Feio”</figcaption></figure>
+      <figure><a href="img/12.png" data-thumb="img/12-thumb.jpg"><img src="img/12-thumb.jpg" width="800" height="1067" loading="lazy" alt="Painel do “Pato Feio”, já emoldurado"></a><figcaption>Painel do “Pato Feio”, já emoldurado</figcaption></figure>
+      <figure><a href="img/13.png" data-thumb="img/13-thumb.jpg"><img src="img/13-thumb.jpg" width="800" height="426" loading="lazy" alt="Diagrama Lógico - Decodificador de Instruções do “Pato Feio” (2017)"></a><figcaption>Diagrama Lógico - Decodificador de Instruções do “Pato Feio” (2017)</figcaption></figure>
+      <figure><a href="img/14.png" data-thumb="img/14-thumb.jpg"><img src="img/14-thumb.jpg" width="800" height="565" loading="lazy" alt="Diagrama Lógico - Decodificador de Instruções do “Pato Feio” (1971)"></a><figcaption>Diagrama Lógico - Decodificador de Instruções do “Pato Feio” (1971)</figcaption></figure>
+      <figure><a href="img/15.png" data-thumb="img/15-thumb.jpg"><img src="img/15-thumb.jpg" width="800" height="602" loading="lazy" alt="Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (1)"></a><figcaption>Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (1)</figcaption></figure>
+      <figure><a href="img/16.png" data-thumb="img/16-thumb.jpg"><img src="img/16-thumb.jpg" width="800" height="1067" loading="lazy" alt="Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (2)"></a><figcaption>Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (2)</figcaption></figure>
+      <figure><a href="img/17.png" data-thumb="img/17-thumb.jpg"><img src="img/17-thumb.jpg" width="800" height="1068" loading="lazy" alt="Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (3)"></a><figcaption>Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (3)</figcaption></figure>
+</main>
+<footer>Clique numa foto para ampliar. No visualizador: setas ← → para navegar, Esc para fechar.</footer>
+
+<div id="viewer" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <img alt="">
+  <div class="cap"><span></span><br><small></small></div>
+  <div class="ctl">
+    <button type="button" class="ghost" data-do="prev">← Anterior</button>
+    <button type="button" data-do="slide">▶ Slideshow</button>
+    <button type="button" class="ghost" data-do="next">Próxima →</button>
+    <a class="orig" target="_blank" rel="noopener">Abrir original</a>
+    <button type="button" class="ghost" data-do="close">Fechar ✕</button>
+  </div>
+</div>
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll("#gallery figure a"));
+  var viewer = document.getElementById("viewer"), img = viewer.querySelector("img"),
+      cap = viewer.querySelector(".cap span"), count = viewer.querySelector(".cap small"),
+      orig = viewer.querySelector(".orig"), slideBtn = viewer.querySelector("[data-do=slide]");
+  var cur = 0, timer = null;
+  function show(i) {
+    cur = (i + links.length) % links.length;
+    var a = links[cur];
+    img.src = a.getAttribute("data-thumb");
+    img.alt = cap.textContent = a.querySelector("img").alt;
+    count.textContent = (cur + 1) + " de " + links.length;
+    orig.href = a.href;
+    viewer.classList.add("open");
+  }
+  function slide(on) {
+    clearInterval(timer);
+    timer = on ? setInterval(function () { show(cur + 1); }, 5000) : null;
+    slideBtn.textContent = on ? "❚❚ Pausar" : "▶ Slideshow";
+  }
+  function close() { slide(false); viewer.classList.remove("open"); }
+  links.forEach(function (a, i) { a.addEventListener("click", function (e) { e.preventDefault(); show(i); }); });
+  document.getElementById("play").addEventListener("click", function () { show(0); slide(true); });
+  viewer.addEventListener("click", function (e) {
+    var what = e.target.getAttribute("data-do");
+    if (what === "prev") { slide(false); show(cur - 1); }
+    else if (what === "next") { slide(false); show(cur + 1); }
+    else if (what === "slide") slide(!timer);
+    else if (what === "close" || e.target === viewer) close();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (!viewer.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    else if (e.key === "ArrowLeft") { slide(false); show(cur - 1); }
+    else if (e.key === "ArrowRight") { slide(false); show(cur + 1); }
+  });
+})();
+</script>
+</body>
 </html>
