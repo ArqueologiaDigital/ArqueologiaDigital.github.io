@@ -6,7 +6,8 @@
 <title>Galeria: Arqueologia Digital</title>
 <!-- Photo gallery (it was the site's front page slideshow until 2026-11). Self-contained: the
      pictures and captions are listed below; add one with a <figure> like the others, using an
-     800 px wide img/NN-thumb.jpg and the original as img/NN.png. -->
+     800 px wide img/NN-thumb.jpg and the original as img/NN.png, and a link to the related topic
+     page (/topicos/<slug>/) in the caption's <span class="topic">. -->
 <style>
   :root { --bg: #14171a; --card: #1e2327; --ink: #e8e6e1; --dim: #9aa0a6; --accent: #7fd38a; }
   * { box-sizing: border-box; }
@@ -29,6 +30,9 @@
   figure img { display: block; width: 100%; height: auto; transition: opacity .15s; }
   figure a:hover img, figure a:focus img { opacity: .82; }
   figcaption { padding: 9px 12px 11px; font-size: .9em; color: #cfcdc7; }
+  figcaption .topic { display: block; margin-top: 4px; font-size: .9em; }
+  figcaption .topic a { text-decoration: none; }
+  figcaption .topic a:hover { text-decoration: underline; }
   footer { max-width: 1240px; margin: 0 auto; padding: 0 20px 40px; color: var(--dim); font-size: .85em; }
   /* viewer */
   #viewer { position: fixed; inset: 0; background: rgba(8,9,10,.96); display: none; flex-direction: column;
@@ -59,23 +63,23 @@
 </header>
 <div class="bar"><button type="button" id="play">▶ Ver como slideshow</button></div>
 <main id="gallery">
-      <figure><a href="img/01.png" data-thumb="img/01-thumb.jpg"><img src="img/01-thumb.jpg" width="800" height="664" loading="lazy" alt="Painel do “Pato Feio”, autografado pelos projetistas originais"></a><figcaption>Painel do “Pato Feio”, autografado pelos projetistas originais</figcaption></figure>
-      <figure><a href="img/02.png" data-thumb="img/02-thumb.jpg"><img src="img/02-thumb.jpg" width="800" height="600" loading="lazy" alt="Módulo de Memória do Computador G-10 (1975)"></a><figcaption>Módulo de Memória do Computador G-10 (1975)</figcaption></figure>
-      <figure><a href="img/03.png" data-thumb="img/03-thumb.jpg"><img src="img/03-thumb.jpg" width="800" height="1423" loading="lazy" alt="Painel do “Pato Feio”, apresentado a J.J. Neto por F. Sanches"></a><figcaption>Painel do “Pato Feio”, apresentado a J.J. Neto por F. Sanches</figcaption></figure>
-      <figure><a href="img/04.png" data-thumb="img/04-thumb.jpg"><img src="img/04-thumb.jpg" width="800" height="600" loading="lazy" alt="Label do “Pato Feio”, original"></a><figcaption>Label do “Pato Feio”, original</figcaption></figure>
-      <figure><a href="img/05.png" data-thumb="img/05-thumb.jpg"><img src="img/05-thumb.jpg" width="800" height="1283" loading="lazy" alt="Layout - Painel do “Pato Feio”"></a><figcaption>Layout - Painel do “Pato Feio”</figcaption></figure>
-      <figure><a href="img/06.png" data-thumb="img/06-thumb.jpg"><img src="img/06-thumb.jpg" width="800" height="424" loading="lazy" alt="Layout - Placa CDE-3 (3D) (1)"></a><figcaption>Layout - Placa CDE-3 (3D) (1)</figcaption></figure>
-      <figure><a href="img/07.png" data-thumb="img/07-thumb.jpg"><img src="img/07-thumb.jpg" width="800" height="571" loading="lazy" alt="Layout - Placa CDE-3 (3D) (2)"></a><figcaption>Layout - Placa CDE-3 (3D) (2)</figcaption></figure>
-      <figure><a href="img/08.png" data-thumb="img/08-thumb.jpg"><img src="img/08-thumb.jpg" width="800" height="763" loading="lazy" alt="Layout - Placa CDE-3-DBG (3D) (1)"></a><figcaption>Layout - Placa CDE-3-DBG (3D) (1)</figcaption></figure>
-      <figure><a href="img/09.png" data-thumb="img/09-thumb.jpg"><img src="img/09-thumb.jpg" width="800" height="763" loading="lazy" alt="Layout - Placa CDE-3-DBG (3D) (2)"></a><figcaption>Layout - Placa CDE-3-DBG (3D) (2)</figcaption></figure>
-      <figure><a href="img/10.png" data-thumb="img/10-thumb.jpg"><img src="img/10-thumb.jpg" width="800" height="366" loading="lazy" alt="Layout - Placa CDE-3-DBG (3D) (3)"></a><figcaption>Layout - Placa CDE-3-DBG (3D) (3)</figcaption></figure>
-      <figure><a href="img/11.png" data-thumb="img/11-thumb.jpg"><img src="img/11-thumb.jpg" width="800" height="600" loading="lazy" alt="Construção do Painel do “Pato Feio”"></a><figcaption>Construção do Painel do “Pato Feio”</figcaption></figure>
-      <figure><a href="img/12.png" data-thumb="img/12-thumb.jpg"><img src="img/12-thumb.jpg" width="800" height="1067" loading="lazy" alt="Painel do “Pato Feio”, já emoldurado"></a><figcaption>Painel do “Pato Feio”, já emoldurado</figcaption></figure>
-      <figure><a href="img/13.png" data-thumb="img/13-thumb.jpg"><img src="img/13-thumb.jpg" width="800" height="426" loading="lazy" alt="Diagrama Lógico - Decodificador de Instruções do “Pato Feio” (2017)"></a><figcaption>Diagrama Lógico - Decodificador de Instruções do “Pato Feio” (2017)</figcaption></figure>
-      <figure><a href="img/14.png" data-thumb="img/14-thumb.jpg"><img src="img/14-thumb.jpg" width="800" height="565" loading="lazy" alt="Diagrama Lógico - Decodificador de Instruções do “Pato Feio” (1971)"></a><figcaption>Diagrama Lógico - Decodificador de Instruções do “Pato Feio” (1971)</figcaption></figure>
-      <figure><a href="img/15.png" data-thumb="img/15-thumb.jpg"><img src="img/15-thumb.jpg" width="800" height="602" loading="lazy" alt="Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (1)"></a><figcaption>Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (1)</figcaption></figure>
-      <figure><a href="img/16.png" data-thumb="img/16-thumb.jpg"><img src="img/16-thumb.jpg" width="800" height="1067" loading="lazy" alt="Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (2)"></a><figcaption>Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (2)</figcaption></figure>
-      <figure><a href="img/17.png" data-thumb="img/17-thumb.jpg"><img src="img/17-thumb.jpg" width="800" height="1068" loading="lazy" alt="Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (3)"></a><figcaption>Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (3)</figcaption></figure>
+      <figure><a href="img/01.png" data-thumb="img/01-thumb.jpg"><img src="img/01-thumb.jpg" width="800" height="664" loading="lazy" alt="Painel do “Pato Feio”, autografado pelos projetistas originais"></a><figcaption>Painel do “Pato Feio”, autografado pelos projetistas originais<span class="topic"><a href="/topicos/patinho-feio/">Tópico: Patinho Feio ›</a></span></figcaption></figure>
+      <figure><a href="img/02.png" data-thumb="img/02-thumb.jpg"><img src="img/02-thumb.jpg" width="800" height="600" loading="lazy" alt="Módulo de Memória do Computador G-10 (1975)"></a><figcaption>Módulo de Memória do Computador G-10 (1975)<span class="topic"><a href="/topicos/computadores-nacionais/">Tópico: Computadores e sistemas nacionais ›</a></span></figcaption></figure>
+      <figure><a href="img/03.png" data-thumb="img/03-thumb.jpg"><img src="img/03-thumb.jpg" width="800" height="1423" loading="lazy" alt="Painel do “Pato Feio”, apresentado a J.J. Neto por F. Sanches"></a><figcaption>Painel do “Pato Feio”, apresentado a J.J. Neto por F. Sanches<span class="topic"><a href="/topicos/patinho-feio/">Tópico: Patinho Feio ›</a></span></figcaption></figure>
+      <figure><a href="img/04.png" data-thumb="img/04-thumb.jpg"><img src="img/04-thumb.jpg" width="800" height="600" loading="lazy" alt="Label do “Pato Feio”, original"></a><figcaption>Label do “Pato Feio”, original<span class="topic"><a href="/topicos/patinho-feio/">Tópico: Patinho Feio ›</a></span></figcaption></figure>
+      <figure><a href="img/05.png" data-thumb="img/05-thumb.jpg"><img src="img/05-thumb.jpg" width="800" height="1283" loading="lazy" alt="Layout - Painel do “Pato Feio”"></a><figcaption>Layout - Painel do “Pato Feio”<span class="topic"><a href="/topicos/patinho-feio/">Tópico: Patinho Feio ›</a></span></figcaption></figure>
+      <figure><a href="img/06.png" data-thumb="img/06-thumb.jpg"><img src="img/06-thumb.jpg" width="800" height="424" loading="lazy" alt="Layout - Placa CDE-3 (3D) (1)"></a><figcaption>Layout - Placa CDE-3 (3D) (1)<span class="topic"><a href="/topicos/patinho-feio/">Tópico: Patinho Feio ›</a></span></figcaption></figure>
+      <figure><a href="img/07.png" data-thumb="img/07-thumb.jpg"><img src="img/07-thumb.jpg" width="800" height="571" loading="lazy" alt="Layout - Placa CDE-3 (3D) (2)"></a><figcaption>Layout - Placa CDE-3 (3D) (2)<span class="topic"><a href="/topicos/patinho-feio/">Tópico: Patinho Feio ›</a></span></figcaption></figure>
+      <figure><a href="img/08.png" data-thumb="img/08-thumb.jpg"><img src="img/08-thumb.jpg" width="800" height="763" loading="lazy" alt="Layout - Placa CDE-3-DBG (3D) (1)"></a><figcaption>Layout - Placa CDE-3-DBG (3D) (1)<span class="topic"><a href="/topicos/patinho-feio/">Tópico: Patinho Feio ›</a></span></figcaption></figure>
+      <figure><a href="img/09.png" data-thumb="img/09-thumb.jpg"><img src="img/09-thumb.jpg" width="800" height="763" loading="lazy" alt="Layout - Placa CDE-3-DBG (3D) (2)"></a><figcaption>Layout - Placa CDE-3-DBG (3D) (2)<span class="topic"><a href="/topicos/patinho-feio/">Tópico: Patinho Feio ›</a></span></figcaption></figure>
+      <figure><a href="img/10.png" data-thumb="img/10-thumb.jpg"><img src="img/10-thumb.jpg" width="800" height="366" loading="lazy" alt="Layout - Placa CDE-3-DBG (3D) (3)"></a><figcaption>Layout - Placa CDE-3-DBG (3D) (3)<span class="topic"><a href="/topicos/patinho-feio/">Tópico: Patinho Feio ›</a></span></figcaption></figure>
+      <figure><a href="img/11.png" data-thumb="img/11-thumb.jpg"><img src="img/11-thumb.jpg" width="800" height="600" loading="lazy" alt="Construção do Painel do “Pato Feio”"></a><figcaption>Construção do Painel do “Pato Feio”<span class="topic"><a href="/topicos/patinho-feio/">Tópico: Patinho Feio ›</a></span></figcaption></figure>
+      <figure><a href="img/12.png" data-thumb="img/12-thumb.jpg"><img src="img/12-thumb.jpg" width="800" height="1067" loading="lazy" alt="Painel do “Pato Feio”, já emoldurado"></a><figcaption>Painel do “Pato Feio”, já emoldurado<span class="topic"><a href="/topicos/patinho-feio/">Tópico: Patinho Feio ›</a></span></figcaption></figure>
+      <figure><a href="img/13.png" data-thumb="img/13-thumb.jpg"><img src="img/13-thumb.jpg" width="800" height="426" loading="lazy" alt="Diagrama Lógico - Decodificador de Instruções do “Pato Feio” (2017)"></a><figcaption>Diagrama Lógico - Decodificador de Instruções do “Pato Feio” (2017)<span class="topic"><a href="/topicos/patinho-feio/">Tópico: Patinho Feio ›</a></span></figcaption></figure>
+      <figure><a href="img/14.png" data-thumb="img/14-thumb.jpg"><img src="img/14-thumb.jpg" width="800" height="565" loading="lazy" alt="Diagrama Lógico - Decodificador de Instruções do “Pato Feio” (1971)"></a><figcaption>Diagrama Lógico - Decodificador de Instruções do “Pato Feio” (1971)<span class="topic"><a href="/topicos/patinho-feio/">Tópico: Patinho Feio ›</a></span></figcaption></figure>
+      <figure><a href="img/15.png" data-thumb="img/15-thumb.jpg"><img src="img/15-thumb.jpg" width="800" height="602" loading="lazy" alt="Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (1)"></a><figcaption>Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (1)<span class="topic"><a href="/topicos/scopus-nexus/">Tópico: Scopus e o Nexus 2600 ›</a></span></figcaption></figure>
+      <figure><a href="img/16.png" data-thumb="img/16-thumb.jpg"><img src="img/16-thumb.jpg" width="800" height="1067" loading="lazy" alt="Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (2)"></a><figcaption>Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (2)<span class="topic"><a href="/topicos/scopus-nexus/">Tópico: Scopus e o Nexus 2600 ›</a></span></figcaption></figure>
+      <figure><a href="img/17.png" data-thumb="img/17-thumb.jpg"><img src="img/17-thumb.jpg" width="800" height="1068" loading="lazy" alt="Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (3)"></a><figcaption>Exame do Scopus Lepus 200 por F. Sanches / D. Quadros / W. Moecke no LaSSu (3)<span class="topic"><a href="/topicos/scopus-nexus/">Tópico: Scopus e o Nexus 2600 ›</a></span></figcaption></figure>
 </main>
 <footer>Clique numa foto para ampliar. No visualizador: setas ← → para navegar, Esc para fechar.</footer>
 
@@ -87,21 +91,24 @@
     <button type="button" data-do="slide">▶ Slideshow</button>
     <button type="button" class="ghost" data-do="next">Próxima →</button>
     <a class="orig" target="_blank" rel="noopener">Abrir original</a>
+    <a class="topic-link"></a>
     <button type="button" class="ghost" data-do="close">Fechar ✕</button>
   </div>
 </div>
 <script>
 (function () {
-  var links = [].slice.call(document.querySelectorAll("#gallery figure a"));
+  var links = [].slice.call(document.querySelectorAll("#gallery figure > a"));
   var viewer = document.getElementById("viewer"), img = viewer.querySelector("img"),
       cap = viewer.querySelector(".cap span"), count = viewer.querySelector(".cap small"),
-      orig = viewer.querySelector(".orig"), slideBtn = viewer.querySelector("[data-do=slide]");
+      orig = viewer.querySelector(".orig"), topic = viewer.querySelector(".topic-link"), slideBtn = viewer.querySelector("[data-do=slide]");
   var cur = 0, timer = null;
   function show(i) {
     cur = (i + links.length) % links.length;
     var a = links[cur];
     img.src = a.getAttribute("data-thumb");
     img.alt = cap.textContent = a.querySelector("img").alt;
+    var t = a.parentNode.querySelector(".topic a");
+    topic.href = t.href; topic.textContent = t.textContent;
     count.textContent = (cur + 1) + " de " + links.length;
     orig.href = a.href;
     viewer.classList.add("open");
