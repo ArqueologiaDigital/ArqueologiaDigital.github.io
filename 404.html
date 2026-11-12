@@ -17,6 +17,10 @@
   // /topicos/, /comunidade/, /projetos/, /logs/ and /busca/ are real pages of this repository
   // (written by Telegram_logs_site/publish.sh). /log is kept as another name for /logs/.
   if (p.toLowerCase().replace(/\/$/, "") === "/log") location.replace("/logs/" + location.hash);
+  // Cross-year topics that were split or renamed: old slug -> new slug.
+  var moved = { "vet3000-brick-games": "vet3000" };   // 2026-11-12: split into vet3000 and brick-games
+  var m = p.match(/^\/topicos\/([^\/]+)\/?$/);
+  if (m && moved[m[1]]) location.replace("/topicos/" + moved[m[1]] + "/" + location.hash);
 })();
 </script>
 </head>
